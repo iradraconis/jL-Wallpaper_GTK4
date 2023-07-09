@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=jl-wallpaper
+Exec=jl-wallpaper
+Icon=com.github.iradraconis.jLWallpaper
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

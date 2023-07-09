@@ -1,0 +1,6 @@
+data/com.github.iradraconis.jLWallpaper.desktop.in
+data/com.github.iradraconis.jLWallpaper.appdata.xml.in
+data/com.github.iradraconis.jLWallpaper.gschema.xml
+src/main.py
+src/window.py
+src/window.ui
