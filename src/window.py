@@ -38,6 +38,8 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
     button_pics_folder = Gtk.Template.Child()
     button_jl_folder = Gtk.Template.Child()
     button_run = Gtk.Template.Child()
+    label_pics_folder = Gtk.Template.Child()
+    label_jl_folder = Gtk.Template.Child()
 
     pics_folder = None
     jl_folder = None
@@ -62,11 +64,12 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
 
         self.load_saved_settings()
 
+        # Update the labels with the loaded settings
+        self.update_labels()
+
         # Ausgabe der ggs. gespeicherten Pfade
         print(self.pics_folder)
         print(self.jl_folder)
-
-
 
 
     def open_file_dialog(self, callback):
@@ -101,11 +104,13 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
         self.pics_folder = folder_path
         print("Pics folder selected:", folder_path)
         self.save_current_settings()
+        self.update_labels()
 
     def on_jl_selected(self, folder_path):
         self.jl_folder = folder_path
         print("jL folder selected:", folder_path)
         self.save_current_settings()
+        self.update_labels()
 
     def load_saved_settings(self):
         if os.path.exists(self.SETTINGS_FILE):
@@ -121,6 +126,14 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
         }
         with open(self.SETTINGS_FILE, 'w') as file:
             json.dump(settings, file)
+
+    def update_labels(self):
+        self.label_pics_folder.set_visible(bool(self.pics_folder))
+        self.label_jl_folder.set_visible(bool(self.jl_folder))
+
+        self.label_pics_folder.set_label(f"Bilder-Ordner: {self.pics_folder}")
+        self.label_jl_folder.set_label(f"j-Lawyer-Ordner: {self.jl_folder}")
+
 
     def run(self, action, parameter):
         print("Selected Pics Folder: ", self.pics_folder)
