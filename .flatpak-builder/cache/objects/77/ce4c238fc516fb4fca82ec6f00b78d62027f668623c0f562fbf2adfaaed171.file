@@ -1,0 +1,4 @@
+[Application]
+name=com.github.iradraconis.jLWallpaper
+runtime=org.gnome.Platform/aarch64/44
+sdk=org.gnome.Sdk/aarch64/44

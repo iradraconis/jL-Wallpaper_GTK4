@@ -27,13 +27,13 @@ def pics_darker(folder):
             image = Image.open(os.path.join(folder_path, filename))
 
             # Reduce brightness auf 60%
-            image = image.point(lambda p: p * 0.6)
+            image = image.point(lambda p: p * 0.75)
 
             # Add a Gaussian blur filter with moderate strength (radius=2)
             # Der radius-Parameter gibt den Radius des Filterkernels in Pixeln an,
             # der zur Berechnung der Gauss'schen Glättung verwendet wird.
             # Je höher der Radius, desto stärker ist die Unschärfe.
-            image = image.filter(ImageFilter.GaussianBlur(radius=12))
+            image = image.filter(ImageFilter.GaussianBlur(radius=6))
 
             # Save the modified image in the subfolder
             image.convert('RGB').save(os.path.join(folder_path, f'{folder_path}/darker_pictures', filename))
