@@ -102,7 +102,7 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
 
     def on_pics_selected(self, folder_path):
         self.pics_folder = folder_path
-        print("Pics folder selected:", folder_path)
+        print("Wallpaper folder selected:", folder_path)
         self.save_current_settings()
         self.update_labels()
 
@@ -136,7 +136,7 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
 
 
     def run(self, action, parameter):
-        print("Selected Pics Folder: ", self.pics_folder)
+        print("Selected Wallpaper Folder: ", self.pics_folder)
         print("Selected jL-Folder: ", self.jl_folder)
         self.button_run.set_label("arbeitet...")
         self.button_run.set_sensitive(False)

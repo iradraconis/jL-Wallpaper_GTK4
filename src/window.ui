@@ -20,7 +20,7 @@
         </child>
         <child>
           <object class="GtkLabel" id="label">
-            <property name="label">Change jL-Wallpaper</property>
+            <property name="label">Eigene Wallpaper in j-Lawyer</property>
             <property name="vexpand">true</property>
             <style>
               <class name="title-1"/>
@@ -30,7 +30,7 @@
         <child>
           <object class="GtkButton" id="button_pics_folder">
             <property name="name">pics_folder</property>
-            <property name="label">Choose Pics Folder</property>
+            <property name="label">Wähle Wallpaper Ordner</property>
             <property name="action-name">win.open_pics</property>
             <property name="margin-start">80</property>
             <property name="margin-end">80</property>
@@ -41,14 +41,14 @@
         </child>
         <child>
           <object class="GtkLabel" id="label_pics_folder">
-            <property name="label">Selected:</property>
+            <property name="label">Ausgewählt:</property>
 
           </object>
         </child>
         <child>
           <object class="GtkButton" id="button_jl_folder">
             <property name="name">jl_folder</property>
-            <property name="label">Choose jL-Folder</property>
+            <property name="label">Wähle j-Lawyer-Ordner</property>
             <property name="action-name">win.open_jl</property>
             <property name="margin-start">80</property>
             <property name="margin-end">80</property>
@@ -68,7 +68,7 @@
         <child>
           <object class="GtkButton" id="button_run">
             <property name="name">run</property>
-            <property name="label">Run!</property>
+            <property name="label">Los!</property>
             <property name="action-name">win.run</property>
             <property name="margin-top">40</property>
             <property name="margin-bottom">40</property>
@@ -81,7 +81,7 @@
         </child>
         <child>
           <object class="GtkLinkButton">
-            <property name="label">Visit on GitHub</property>
+            <property name="label">zu GitHub</property>
             <property name="uri">https://github.com/iradraconis/jL-Wallpaper.git</property>
           </object>
         </child>
