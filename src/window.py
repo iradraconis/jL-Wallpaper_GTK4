@@ -68,8 +68,8 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
         self.update_labels()
 
         # Ausgabe der ggs. gespeicherten Pfade
-        print(self.pics_folder)
-        print(self.jl_folder)
+        print('Bilder Ordner: ' + self.pics_folder)
+        print('j-Lawyer Ordner: ' + self.jl_folder)
 
 
     def open_file_dialog(self, callback):
@@ -163,37 +163,42 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
 
             print(f'Entpacke die Daten zum {target_zip_folder} Ordner')
 
-            # Create a ZipFile Object
-            with ZipFile(source_zip, 'r') as zipObj:
-                # Extract all the contents of zip file in different directory
-                zipObj.extractall('temp')
+            if not os.path.exists(source_zip):
+                print("Datei nicht gefunden")
 
-            shutil.rmtree(pict_folder)
-            print("Lösche alte Wallpaper...")
+            else:
 
-            shutil.copytree(file_path_wallpaper, pict_folder, symlinks=False, ignore=None, ignore_dangling_symlinks=False,
-                            dirs_exist_ok=False)
+                # Create a ZipFile Object
+                with ZipFile(source_zip, 'r') as zipObj:
+                    # Extract all the contents of zip file in different directory
+                    zipObj.extractall('temp')
 
-            print("Kopiere neue Wallpaper...")
+                shutil.rmtree(pict_folder)
+                print("Lösche alte Wallpaper...")
 
-            shutil.make_archive(zip_file, 'zip', target_zip_folder)
-            print('Komprimiere Dateien...')
+                shutil.copytree(file_path_wallpaper, pict_folder, symlinks=False, ignore=None, ignore_dangling_symlinks=False,
+                                dirs_exist_ok=False)
 
-            # Renaming the file
-            os.rename('j-lawyer-client.zip', 'j-lawyer-client.jar')
+                print("Kopiere neue Wallpaper...")
 
-            # move .jar File to target folder
-            shutil.move(r'j-lawyer-client.jar',
-                        f'{file_path_installation}/j-lawyer-client.jar')
+                shutil.make_archive(zip_file, 'zip', target_zip_folder)
+                print('Komprimiere Dateien...')
 
-            print("Räume auf")
+                # Renaming the file
+                os.rename('j-lawyer-client.zip', 'j-lawyer-client.jar')
 
-            # remove temp folder
-            shutil.rmtree(target_zip_folder)
-            shutil.rmtree(file_path_wallpaper)
+                # move .jar File to target folder
+                shutil.move(r'j-lawyer-client.jar',
+                            f'{file_path_installation}/j-lawyer-client.jar')
 
-            print('Beseitige Spuren')
-            print("Fertig!")
+                print("Räume auf")
+
+                # remove temp folder
+                shutil.rmtree(target_zip_folder)
+                shutil.rmtree(file_path_wallpaper)
+
+                print('Beseitige Spuren')
+                print("Fertig!")
 
         except Exception as e:
             print(str(e))

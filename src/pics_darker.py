@@ -26,7 +26,7 @@ def pics_darker(folder):
             # Open image
             image = Image.open(os.path.join(folder_path, filename))
 
-            # Reduce brightness auf 60%
+            # Reduce brightness to 60%
             image = image.point(lambda p: p * 0.75)
 
             # Add a Gaussian blur filter with moderate strength (radius=2)
