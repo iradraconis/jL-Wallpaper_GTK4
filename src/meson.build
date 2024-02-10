@@ -1,12 +1,22 @@
 pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
 moduledir = join_paths(pkgdatadir, 'jl_wallpaper')
 gnome = import('gnome')
+blueprints = custom_target('blueprints',
+  input: files(
+    'gtk/help-overlay.blp',
+    'window.blp',
+  ),
+  output: '.',
+  command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
+)
+
 
 gnome.compile_resources('jl-wallpaper',
   'jl-wallpaper.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
+  dependencies: blueprints,
 )
 
 python = import('python')
@@ -35,3 +45,4 @@ jl_wallpaper_sources = [
 ]
 
 install_data(jl_wallpaper_sources, install_dir: moduledir)
+
