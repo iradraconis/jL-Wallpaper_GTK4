@@ -3,7 +3,7 @@ using Adw 1;
 
 template $JlWallpaperWindow : Adw.ApplicationWindow {
   default-width: 510;
-  default-height: 450;
+  default-height: 700;
 
   Box {
     orientation: vertical;
@@ -24,6 +24,17 @@ template $JlWallpaperWindow : Adw.ApplicationWindow {
         "title-1",
       ]
     }
+
+  Image {
+    name: "logo";
+    icon-name: "icon-64.png";
+    pixel-size: 196;
+    margin-bottom: 30;
+
+    styles [
+      "icon-dropshadow"
+    ]
+  }
 
     Button button_pics_folder {
       name: 'pics_folder';
