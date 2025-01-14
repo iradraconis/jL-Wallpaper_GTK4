@@ -1,0 +1,111 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $JlWallpaperWindow : Adw.ApplicationWindow {
+  default-width: 510;
+  default-height: 700;
+
+  Box {
+    orientation: vertical;
+
+    HeaderBar header_bar {
+      [end]
+      MenuButton {
+        icon-name: 'open-menu-symbolic';
+        menu-model: primary_menu;
+      }
+    }
+
+    Label label {
+      label: 'Meine Wallpaper in j-Lawyer';
+      vexpand: true;
+
+      styles [
+        "title-1",
+      ]
+    }
+
+  Image {
+    name: "logo";
+    icon-name: "icon-64.png";
+    pixel-size: 196;
+    margin-bottom: 30;
+
+    styles [
+      "icon-dropshadow"
+    ]
+  }
+
+    Button button_pics_folder {
+      name: 'pics_folder';
+      label: 'Wähle Wallpaper Ordner';
+      action-name: 'win.open_pics';
+      margin-start: 80;
+      margin-end: 80;
+
+      styles [
+        "flat",
+      ]
+    }
+
+    Label label_pics_folder {
+      label: 'Ausgewählt:';
+    }
+
+    Button button_jl_folder {
+      name: 'jl_folder';
+      label: 'Wähle j-Lawyer-Ordner';
+      action-name: 'win.open_jl';
+      margin-start: 80;
+      margin-end: 80;
+
+      styles [
+        "flat",
+      ]
+    }
+
+    Label label_jl_folder {
+      label: 'Selected:';
+      wrap: true;
+      max-width-chars: 20;
+    }
+
+    Button button_run {
+      name: 'run';
+      label: 'Los!';
+      action-name: 'win.run';
+      margin-top: 40;
+      margin-bottom: 40;
+      margin-start: 80;
+      margin-end: 80;
+
+      styles [
+        "suggested-action",
+      ]
+    }
+
+    LinkButton {
+      label: 'zu GitHub';
+      uri: 'https://github.com/iradraconis/jL-Wallpaper.git';
+    }
+  }
+}
+
+menu primary_menu {
+  section {
+    item {
+      label: _('_Preferences');
+      action: 'app.preferences';
+    }
+
+    item {
+      label: _('_Keyboard Shortcuts');
+      action: 'win.show-help-overlay';
+    }
+
+    item {
+      label: _('_About JL-Wallpaper');
+      action: 'app.about';
+    }
+  }
+}
