@@ -23,12 +23,12 @@
         "*.a"
     ],
     "modules" : [
-        {
+    {
             "name" : "Pillow",
             "buildsystem" : "simple",
             "build-commands" : [
-                "pip3 install --prefix=/app --no-cache-dir Pillow-9.4.0.tar.gz"
-            ],
+            	"pip3 install --prefix=/app --no-cache-dir Pillow-9.4.0.tar.gz"
+            	],
             "sources" : [
                 {
                     "type" : "file",
@@ -46,13 +46,7 @@
                     "type" : "git",
                     "url" : "file:///home/max/Projekte"
                 }
-            ],
-            "config-opts" : [
-                "--libdir=lib"
             ]
         }
-    ],
-    "build-options" : {
-        "env" : {        }
-    }
+    ]
 }

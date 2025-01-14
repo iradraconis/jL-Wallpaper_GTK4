@@ -68,8 +68,8 @@ class JlWallpaperWindow(Adw.ApplicationWindow):
         self.update_labels()
 
         # Ausgabe der ggs. gespeicherten Pfade
-        print('Bilder Ordner: ' + self.pics_folder)
-        print('j-Lawyer Ordner: ' + self.jl_folder)
+        # print('Bilder Ordner: ' + self.pics_folder)
+        # print('j-Lawyer Ordner: ' + self.jl_folder)
 
 
     def open_file_dialog(self, callback):
